@@ -32,20 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            android:src="@android:drawable/ic_dialog_email" />
 
     </android.support.design.widget.CoordinatorLayout>
 
 
     <fragment
         android:id="@+id/navigation_drawer"
-        class="CoreBase.BaseNavigationDrawerActivity"
+        class="CoreBase.NavigationDrawerFragment"
         android:layout_width="@dimen/core_base_navigation_drawer_w"
         android:layout_height="match_parent"
         android:layout_gravity="start"

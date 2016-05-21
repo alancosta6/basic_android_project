@@ -1,7 +1,6 @@
 package CoreBase;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -34,7 +33,6 @@ import acosta.co.nz.coreapp.R;
  */
 public class NavigationDrawerFragment extends Fragment {
 
-    private ProgressDialog pDialog;
 
     private static final int UNDEFINED_ADAPTER_POS = -1;
 
@@ -134,7 +132,8 @@ public class NavigationDrawerFragment extends Fragment {
     @SuppressLint("InflateParams")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.core_base_navigation_drawer, container, false);
+
+        rootView = inflater.inflate(R.layout.core_base_navigation_drawer_fragment, container, false);
 
         mDrawerListView = (ListView) rootView.findViewById(R.id.navigation_drawer_items);
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -398,7 +397,7 @@ public class NavigationDrawerFragment extends Fragment {
      * Callbacks interface that all activities using this fragment must
      * implement.
      */
-    public static interface NavigationDrawerCallbacks {
+    public interface NavigationDrawerCallbacks {
         /**
          * Called when an item in the navigation drawer is selected.
          */

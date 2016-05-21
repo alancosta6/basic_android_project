@@ -22,7 +22,7 @@ public class CustomTypeFaceTextView extends TextView {
 		super(context, attrs, defStyle);
 
         
-		final TypedArray array = context.obtainStyledAttributes(attrs, styleable.CustomTypeFaceTextView);
+		final TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CustomTypeFaceTextView);
         if (array != null) {
         	
         	

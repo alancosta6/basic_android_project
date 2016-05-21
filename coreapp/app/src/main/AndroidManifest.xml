@@ -18,6 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
+        <!--Start CoreBase Activities-->
+        <!--End CoreBase Activities-->
+
+
     </application>
+
+
+
+
+
 
 </manifest>
