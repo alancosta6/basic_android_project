@@ -42,7 +42,7 @@
         android:layout_width="@dimen/core_base_navigation_drawer_w"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        tools:layout="@layout/core_base_navigation_drawer" />
+        tools:layout="@layout/core_base_navigation_drawer_fragment" />
 
 
 </android.support.v4.widget.DrawerLayout>

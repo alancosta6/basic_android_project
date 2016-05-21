@@ -102,6 +102,12 @@ public abstract class BaseNavigationDrawerActivity extends AppIndexingActivity i
     }
 
 
+    public Toolbar getToolbar() {
+
+        return toolbar;
+    }
+
+
     @Override
     public void onNavigationDrawerItemSelected(int position) {
 

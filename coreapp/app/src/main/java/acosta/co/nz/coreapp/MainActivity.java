@@ -23,6 +23,11 @@ public class MainActivity extends BaseNavigationDrawerActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
+
+        getToolbar().setTitle("OI MUNDO");
+
+
     }
 
     @Override

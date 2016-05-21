@@ -36,7 +36,6 @@ public class NavigationDrawerFragment extends Fragment {
 
     private static final int UNDEFINED_ADAPTER_POS = -1;
 
-    private String[] menuOpts = {};
     final int[] menuIcons = {
             R.drawable.ic_launcher,
             R.drawable.ic_launcher,
@@ -148,7 +147,7 @@ public class NavigationDrawerFragment extends Fragment {
 
 
 
-        mDrawerListViewAdapter = new ArrayAdapter<String>(getActivity(), R.layout.core_base_navigation_drawer_item, R.id.menu_item_label, menuOpts) {
+        mDrawerListViewAdapter = new ArrayAdapter<String>(getActivity(), R.layout.core_base_navigation_drawer_item, R.id.menu_item_label, menuOptsArray) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View v = super.getView(position, convertView, parent);

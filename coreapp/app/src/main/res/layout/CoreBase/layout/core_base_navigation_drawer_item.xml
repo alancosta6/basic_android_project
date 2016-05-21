@@ -18,7 +18,7 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_launcher" />
     
-        <com.zoom.zoomandroid.view.CustomTypeFaceTextView
+        <Util.CustomTypeFaceTextView
             android:id="@+id/menu_item_label"
             android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
@@ -26,7 +26,6 @@
             android:text="menu"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:setLetterSpacing="0.1"
-            app:typeface="fonts/VerbExCondLight-webfont.ttf" />    
+            app:setLetterSpacing="0.1" />
 
 </LinearLayout>
