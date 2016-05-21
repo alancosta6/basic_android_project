@@ -7,9 +7,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.zoom.zoomandroid.R;
-import com.zoom.zoomandroid.R.styleable;
-import com.zoom.zoomandroid.util.TypeFaceCache;
+import acosta.co.nz.coreapp.R;
 
 @SuppressLint("NewApi")
 public class CustomTypeFaceTextView extends TextView {
