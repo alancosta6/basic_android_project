@@ -42,36 +42,14 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
-    
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:orientation="vertical"-->
-        <!--android:fitsSystemWindows="true" >-->
 
-        <!--<android.support.v7.widget.Toolbar-->
-            <!--android:id="@+id/toolbar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:theme="@style/ZoomThemeToolbar" -->
-            <!--android:elevation="5dp">-->
-        <!--</android.support.v7.widget.Toolbar>-->
-
-        <!--<FrameLayout-->
-            <!--android:id="@+id/container"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent" />-->
-
-    <!--</LinearLayout>-->
-    
-        <fragment
+    <fragment
         android:id="@+id/navigation_drawer"
-        class="CoreBase.BaseNavigationDrawer"
+        class="CoreBase.BaseNavigationDrawerActivity"
         android:layout_width="@dimen/core_base_navigation_drawer_w"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         tools:layout="@layout/core_base_navigation_drawer" />
-
 
 
 </android.support.v4.widget.DrawerLayout>

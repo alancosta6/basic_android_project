@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomTypeFaceTextView">
+        <attr name="typeface" format="string" />
+        <attr name="setLetterSpacing" format="float" />
+    </declare-styleable>
+
+    
+</resources>
+
