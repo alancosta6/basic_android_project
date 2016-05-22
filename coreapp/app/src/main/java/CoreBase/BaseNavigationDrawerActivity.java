@@ -56,6 +56,7 @@ public abstract class BaseNavigationDrawerActivity extends AppIndexingActivity i
 
         if (getSupportActionBar() != null) {
 
+            getSupportActionBar().setDisplayShowTitleEnabled(true);
             getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP |
                     ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_CUSTOM);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
