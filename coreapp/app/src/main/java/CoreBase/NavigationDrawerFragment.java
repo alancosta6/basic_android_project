@@ -263,7 +263,7 @@ public class NavigationDrawerFragment extends Fragment {
                     mUserLearnedDrawer = true;
                 }
 
-                getActivity().supportInvalidateOptionsMenu();
+//                getActivity().supportInvalidateOptionsMenu();
             }
         };
 
