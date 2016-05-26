@@ -1,13 +1,18 @@
 package CoreBase;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.MenuItem;
+import android.view.View;
 
 import Util.ViewUtil;
 import acosta.co.nz.coreapp.R;
@@ -15,15 +20,17 @@ import acosta.co.nz.coreapp.R;
 /**
  * Created by alancosta on 5/19/16.
  */
-public abstract class BaseNavigationDrawerActivity extends AppIndexingActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public abstract class BaseNavigationDrawerActivity extends AppIndexingActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the
      * navigation drawer.
      */
-    protected NavigationDrawerFragment mNavigationDrawerFragment;
-    private Toolbar toolbar;
+    private Toolbar mToolbar;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private DrawerLayout mDrawerLayout;
+    private NavigationView mNavigationView;
 
 
     @Override
@@ -32,26 +39,23 @@ public abstract class BaseNavigationDrawerActivity extends AppIndexingActivity i
         super.onCreate(savedInstanceState);
         setContentView(R.layout.core_base_activity);
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationView = (NavigationView) findViewById(R.id.navigation_drawer);
+        mToolbar = (Toolbar) findViewById(R.id.core_base_toolbar);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        toolbar = (Toolbar) findViewById(R.id.core_base_toolbar);
-        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
-        setSupportActionBar(toolbar);
+
+
+
+        mToolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        setSupportActionBar(mToolbar);
 
         ViewUtil.setStatusBarColor(this, ContextCompat.getColor(this, R.color.colorPrimary));
-
 
         // update the main content by replacing fragments
         if (createMainFragment() != null) {
 
             addFragment(createMainFragment());
         }
-
-//        LayoutInflater inflator = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        View view = inflator.inflate(R.layout.view_ab, null);
-//        ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,
-//                ActionBar.LayoutParams.WRAP_CONTENT, ViewUtil.gravityLeft() );
-//        getSupportActionBar().setCustomView(view, params);
 
 
         if (getSupportActionBar() != null) {
@@ -64,15 +68,8 @@ public abstract class BaseNavigationDrawerActivity extends AppIndexingActivity i
         }
 
 
-//        if (!showToolbarTitle()) {
-//
-//            toolbar.setTitle(StringUtil.EMPTY_STRING);
-//        }
-
-
-        // Set up the drawer.
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
+        setUpNavigationDrawer(mDrawerLayout,mToolbar);
+        mNavigationView.setNavigationItemSelectedListener(this);
 
 
     }
@@ -105,24 +102,79 @@ public abstract class BaseNavigationDrawerActivity extends AppIndexingActivity i
 
     public Toolbar getToolbar() {
 
-        return toolbar;
+        return mToolbar;
     }
 
 
     @Override
-    public void onNavigationDrawerItemSelected(int position) {
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+
+
+        return true;
+    }
+
+
+
+
+    public void setUpNavigationDrawer(DrawerLayout drawerLayout, final Toolbar toolbar) {
+
+
+        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+
+                supportInvalidateOptionsMenu(); // calls
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+
+                supportInvalidateOptionsMenu();
+            }
+        };
+
+
+
+        // Defer code dependent on restoration of previous instance state.
+        if (true) {
+
+            drawerLayout.post(new Runnable() {
+                @Override
+                public void run() {
+                    mDrawerToggle.syncState();
+                }
+            });
+
+        } else {
+            mDrawerToggle.setDrawerIndicatorEnabled(false);
+            mDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    onBackPressed();
+
+                }
+            });
+        }
+        drawerLayout.addDrawerListener(mDrawerToggle);
+
 
     }
 
     @Override
-    public int viewIndexInNavigationDrawer() {
-        return 0;
+    public void onBackPressed() {
+
+        if(mDrawerLayout != null && mDrawerLayout.isDrawerOpen(Gravity.LEFT)){
+
+            mDrawerLayout.closeDrawer(Gravity.LEFT);
+        }else {
+
+            super.onBackPressed();
+        }
     }
-
-    @Override
-    public boolean isHomeAsUp() {
-        return false;
-    }
-
-
 }

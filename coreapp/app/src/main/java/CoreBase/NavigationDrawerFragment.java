@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -17,10 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
 
 import acosta.co.nz.coreapp.R;
 
@@ -31,24 +28,11 @@ import acosta.co.nz.coreapp.R;
  * > design guidelines</a> for a complete explanation of the behaviors
  * implemented here.
  */
-public class NavigationDrawerFragment extends Fragment {
+public class NavigationDrawerFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
 
 
     private static final int UNDEFINED_ADAPTER_POS = -1;
 
-    final int[] menuIcons = {
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher
-    };
-
-    final String[] menuOptsArray = {
-            "menu_home",
-            "menu_home",
-            "menu_home",
-            "menu_home"
-    };
 
 
     /**
@@ -73,8 +57,8 @@ public class NavigationDrawerFragment extends Fragment {
     private ActionBarDrawerToggle mDrawerToggle;
 
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerListView;
-    private ArrayAdapter<String> mDrawerListViewAdapter;
+//    private ListView mDrawerListView;
+//    private ArrayAdapter<String> mDrawerListViewAdapter;
     private View mFragmentContainerView;
 
     private boolean mFromSavedInstanceState;
@@ -134,90 +118,52 @@ public class NavigationDrawerFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.core_base_navigation_drawer_fragment, container, false);
 
-        mDrawerListView = (ListView) rootView.findViewById(R.id.navigation_drawer_items);
-        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                selectItem(position);
-            }
-        });
+//        mDrawerListView = (ListView) rootView.findViewById(R.id.navigation_drawer_items);
+//        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                selectItem(position);
+//            }
+//        });
+
+        NavigationView navigationView = (NavigationView) rootView.findViewById(R.id.navigation_drawer);
+//        navigationView.setNavigationItemSelectedListener(this);
 
 
 
 
-
-        mDrawerListViewAdapter = new ArrayAdapter<String>(getActivity(), R.layout.core_base_navigation_drawer_item, R.id.menu_item_label, menuOptsArray) {
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View v = super.getView(position, convertView, parent);
-                ImageView menu_item_icon = (ImageView) v.findViewById(R.id.menu_item_icon);
-                menu_item_icon.setImageResource(menuIcons[position]);
-
-                if (mDrawerListView.getCheckedItemPosition() > UNDEFINED_ADAPTER_POS && mDrawerListView.getCheckedItemPosition() == position + 1) {
-
+//        mDrawerListViewAdapter = new ArrayAdapter<String>(getActivity(), R.layout.core_base_navigation_drawer_item, R.id.menu_item_label, menuOptsArray) {
+//            @Override
+//            public View getView(int position, View convertView, ViewGroup parent) {
+//                View v = super.getView(position, convertView, parent);
+//                ImageView menu_item_icon = (ImageView) v.findViewById(R.id.menu_item_icon);
+//                menu_item_icon.setImageResource(menuIcons[position]);
+//
+//                if (mDrawerListView.getCheckedItemPosition() > UNDEFINED_ADAPTER_POS && mDrawerListView.getCheckedItemPosition() == position + 1) {
+//
 //					ViewUtil.setBackground(v, ViewUtil.getDrawable(v.getContext(), R.drawable.ripple_rectangle_gray_tabbed));
-                } else {
+//                } else {
 //					ViewUtil.setBackground(v, ViewUtil.getDrawable(v.getContext(), R.drawable.ripple_rectangle_white));
-                }
+//                }
+//
+//
+//                return v;
+//            }
+//        };
 
-
-                return v;
-            }
-        };
-
-        mDrawerListView.setAdapter(mDrawerListViewAdapter);
+//        mDrawerListView.setAdapter(mDrawerListViewAdapter);
 
 
         return rootView;
     }
 
 
-    public void highlightMenuIndex(int position) {
-
-        mDrawerListView.clearChoices();
-        mDrawerListViewAdapter.notifyDataSetChanged();
-
-        switch (position) {
-//		case Defs.MENU_ITEM_HOME:
-//			mDrawerListView.setItemChecked(Defs.MENU_ITEM_HOME,true);
-//			break;
-//		case Defs.MENU_ITEM_CATEGORIES:
-//			mDrawerListView.setItemChecked(Defs.MENU_ITEM_CATEGORIES,true);
-//			break;
-//		case Defs.MENU_ITEM_BEST_DEALS:
-//			mDrawerListView.setItemChecked(Defs.MENU_ITEM_BEST_DEALS,true);
-//			break;
-//		case Defs.MENU_ITEM_FAVORITES:
-//			View menu_myProducts = headerView.findViewById(R.id.menu_my_products);
-//			ViewUtil.setBackground(menu_myProducts, ViewUtil.getDrawable(headerView.getContext(), R.drawable.ripple_rectangle_gray_tabbed));
-//			break;
-//		case Defs.MENU_ITEM_ALERTS:
-//			View menu_myAlerts = headerView.findViewById(R.id.menu_my_alerts);
-//			ViewUtil.setBackground(menu_myAlerts, ViewUtil.getDrawable(headerView.getContext(), R.drawable.ripple_rectangle_gray_tabbed));
-//			break;
-//		case Defs.MENU_ITEM_ABOUT_WARRANTY:
-//			TextView about_zoom = (TextView) footerView.findViewById(R.id.about_zoom);
-//			ViewUtil.setBackground(about_zoom, ViewUtil.getDrawable(rootView.getContext(), R.drawable.ripple_rectangle_gray_tabbed));
-//			break;
-//		case Defs.MENU_ITEM_ABOUT_APP:
-//			TextView about_app = (TextView) footerView.findViewById(R.id.about_app);
-//			ViewUtil.setBackground(about_app, ViewUtil.getDrawable(rootView.getContext(), R.drawable.ripple_rectangle_gray_tabbed));
-//			break;
-
-
-            default:
-                break;
-        }
-
-    }
-
 
     @Override
     public void onResume() {
         super.onResume();
 
-        highlightMenuIndex(mCallbacks.viewIndexInNavigationDrawer());
     }
 
 
@@ -298,18 +244,6 @@ public class NavigationDrawerFragment extends Fragment {
 
     }
 
-    private void selectItem(int position) {
-
-        if (mDrawerListView != null) {
-            mDrawerListView.setItemChecked(position, true);
-        }
-        if (mDrawerLayout != null) {
-            mDrawerLayout.closeDrawer(mFragmentContainerView);
-        }
-        if (mCallbacks != null) {
-            mCallbacks.onNavigationDrawerItemSelected(position);
-        }
-    }
 
     public void closeDrawerIfPossible() {
         if (mDrawerLayout != null) {
@@ -391,6 +325,14 @@ public class NavigationDrawerFragment extends Fragment {
         return ((AppCompatActivity) getActivity()).getSupportActionBar();
     }
 
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+
+
+        return true;
+    }
+
 
     /**
      * Callbacks interface that all activities using this fragment must
@@ -400,9 +342,6 @@ public class NavigationDrawerFragment extends Fragment {
         /**
          * Called when an item in the navigation drawer is selected.
          */
-        void onNavigationDrawerItemSelected(int position);
-
-        int viewIndexInNavigationDrawer();
 
         boolean isHomeAsUp();
     }
