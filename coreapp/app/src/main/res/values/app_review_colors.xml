@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_review_header">#FF4081</color>
+    <color name="app_review_body">#FFFFFF</color>
+
+
+
+    <color name="zoom_rating_header">#bfdb58</color>
+    <color name="zoom_rating_body">#ffffff</color>
+    <color name="zoom_rating_text">#333333</color>
+    <color name="zoom_rating_subtext">#849093</color>
+    <color name="zoom_rating_action">#0082d6</color>
+    <color name="zoom_rating_text_editor_color">#dee4e6</color>
+    <color name="zoom_rating_text_editor_error_color">#f0595f</color>
+    <color name="zoom_rating_blink_animation">#f0595f</color>
+
+</resources>

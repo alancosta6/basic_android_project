@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/zoom_rating_dislike_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/app_review_body"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/app_review_header" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:id="@+id/zoom_rating_close"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:clickable="false"
+                android:background="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/close"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_review_body"
+        android:isScrollContainer="true"
+        android:overScrollMode="never"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@color/app_review_body"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="30dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:weightSum="1" >
+
+            <Util.CustomTypeFaceTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/zoom_rating_dislike_title"
+                android:textColor="@color/zoom_rating_text"
+                android:textSize="17sp" />
+
+            <Util.CustomTypeFaceTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="@string/zoom_rating_dislike_msg"
+                android:textColor="@color/zoom_rating_text"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/zoom_rating_review_input"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/app_review_texteditor_border"
+                android:ems="10"
+                android:gravity="top|left"
+                android:imeOptions="actionSend"
+                android:inputType="textImeMultiLine"
+                android:padding="5dp"
+                android:paddingTop="15dp"
+                android:singleLine="false"
+                android:textColor="@color/zoom_rating_text"
+                android:textSize="13sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Util.CustomTypeFaceTextView
+                    android:id="@+id/zoom_rating_dismiss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/zoom_rating_no_details"
+                    android:textColor="@color/zoom_rating_subtext"
+                    android:textSize="12sp"
+                    android:layout_centerVertical="true" 
+                    android:background="@drawable/ripple_rectangle_white"/>
+
+                <Util.CustomTypeFaceTextView
+                    android:id="@+id/zoom_rating_send_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/zoom_rating_dismiss"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toEndOf="@+id/zoom_rating_dismiss"
+                    android:layout_toRightOf="@+id/zoom_rating_dismiss"
+                    android:gravity="end|center_vertical"
+                    android:text="@string/zoom_rating_send"
+                    android:textColor="@color/zoom_rating_action"
+                    android:textSize="17sp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/ripple_rectangle_white" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

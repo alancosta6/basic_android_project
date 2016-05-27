@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/zoom_rating_header"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/zoom_rating_body" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/ic_launcher" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/zoom_rating_body"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:background="@color/zoom_rating_body"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp" >
+
+            <Util.CustomTypeFaceTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/zoom_rating_like_title"
+                android:textColor="@color/zoom_rating_text"
+                android:textSize="17sp" />
+
+            <Util.CustomTypeFaceTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="@string/zoom_rating_like_msg"
+                android:textColor="@color/zoom_rating_text"
+                android:textSize="15sp" />
+
+            <Util.CustomTypeFaceTextView
+                android:id="@+id/zoom_rating_open_store"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:text="@string/zoom_rating_like_my_opinion"
+                android:textColor="@color/zoom_rating_action"
+                android:textSize="20sp"
+                android:background="@drawable/ripple_rectangle_white" />
+
+            <Util.CustomTypeFaceTextView
+                android:id="@+id/zoom_rating_store_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:gravity="center_horizontal"
+                android:text="@string/zoom_rating_like_play_store"
+                android:textColor="@color/zoom_rating_subtext"
+                android:background="@drawable/ripple_rectangle_white"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:id="@+id/zoom_rating_dismiss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="15dp" 
+                android:background="@drawable/ripple_rectangle_white">
+
+                <Util.CustomTypeFaceTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/zoom_rating_no_details"
+                    android:textColor="@color/zoom_rating_subtext"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

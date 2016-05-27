@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/zoom_rating_header"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+
+
+        <LinearLayout
+            android:id="@+id/zoom_rating_close"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:background="@null"
+                android:clickable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/close" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/zoom_rating_body"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="40dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingTop="30dp"
+        android:weightSum="1">
+
+        <Util.CustomTypeFaceTextView
+            android:id="@+id/zoom_rating_feedback_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/zoom_rating_feedback_working_title"
+            android:textColor="@color/zoom_rating_text"
+            android:textSize="17sp" />
+
+        <Util.CustomTypeFaceTextView
+            android:id="@+id/zoom_rating_feedback_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:text="@string/zoom_rating_feedback_working_msg"
+            android:textColor="@color/zoom_rating_text"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

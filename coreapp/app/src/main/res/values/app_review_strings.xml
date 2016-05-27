@@ -1,0 +1,29 @@
+<resources>
+    <string name="zoom_rating_feedback_ok_title">OK, OBRIGADO!</string>
+    <string name="zoom_rating_feedback_ok_msg">Lembre-se: qualquer crítica ou sugestão é só falar com a gente!</string>
+    <string name="zoom_rating_feedback_working_title">DEIXA COM A GENTE!</string>
+    <string name="zoom_rating_feedback_working_msg">Vamos avaliar a sua sugestão com todo o carinho.Para saber sobre melhorias, fique atento às atualizações do app.</string>
+
+
+    <string name="zoom_rating_dislike_title">QUEREMOS TE OUVIR</string>
+    <string name="zoom_rating_dislike_msg">Conta pra gente, onde podemos melhorar e te atender da melhor maneira possível?</string>
+
+    <string name="zoom_rating_like_title">UHUL! QUE BOM!</string>
+    <string name="zoom_rating_like_msg">Conte sobre a sua experiência com o app.Sua opinião é muito importante pra gente!</string>
+    <string name="zoom_rating_like_my_opinion">Dar minha opinião</string>
+    <string name="zoom_rating_like_play_store">(na play store)</string>
+
+
+    <string name="zoom_rating_panel_title">OLA! TUDO BEM?</string>
+    <string name="zoom_rating_panel_msg">E ai, tudo certinho com o app do Zoom?</string>
+    <string name="zoom_rating_panel_like">Sim, estou curtindo!</string>
+    <string name="zoom_rating_panel_dislike">Não, ele deixa a desejar!</string>
+    <string name="zoom_rating_panel_dont_know">Ainda não sei</string>
+    <string name="zoom_rating_panel_dislike_tell_us_more">Ei!, fala mais!</string>
+
+
+    <string name="zoom_rating_no_details">Não quero dar detalhes</string>
+    <string name="zoom_rating_dont_ask">Não me pergunte de novo</string>
+    <string name="zoom_rating_send">Enviar</string>
+
+</resources>

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import AppReview.AppReviewManager;
 import CoreBase.BaseNavigationDrawerActivity;
 
 public class MainActivity extends BaseNavigationDrawerActivity {
@@ -26,6 +27,9 @@ public class MainActivity extends BaseNavigationDrawerActivity {
 
 
         getToolbar().setTitle("OI MUNDO");
+
+
+        AppReviewManager.getInstance(this).start(getSupportFragmentManager());
 
 
     }

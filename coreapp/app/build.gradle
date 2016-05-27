@@ -29,9 +29,8 @@ android {
 
                             'src/main/res',
                             'src/main/res/layout',
-                            'src/main/res/layout/CoreBase'
-
-                            , 'src/main/res/values-navigation-drawer']
+                            'src/main/res/layout/CoreBase',
+                            'src/main/res/layout/AppReview']
 
 
         }
