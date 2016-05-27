@@ -29,7 +29,7 @@ public class AppReviewDialogLike extends DialogFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 
-		View rootView = inflater.inflate(R.layout.rating_panel_liked, container, false);
+		View rootView = inflater.inflate(R.layout.app_review_liked, container, false);
 
 		mDialog = getDialog();
 		setupDialogProperties(mDialog);

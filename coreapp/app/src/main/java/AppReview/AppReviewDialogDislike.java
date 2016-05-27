@@ -46,7 +46,7 @@ public class AppReviewDialogDislike extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View rootView = inflater.inflate(R.layout.rating_panel_disliked, container, false);
+        View rootView = inflater.inflate(R.layout.app_review_disliked, container, false);
 
         mDialog = getDialog();
         setupDialogProperties(mDialog);
