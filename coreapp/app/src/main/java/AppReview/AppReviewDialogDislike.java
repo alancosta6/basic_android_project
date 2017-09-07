@@ -1,4 +1,4 @@
-package AppReview;
+package appreview;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;

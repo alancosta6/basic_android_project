@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "364738558132",
+    "firebase_url": "https://core-basic-project.firebaseio.com",
+    "project_id": "core-basic-project",
+    "storage_bucket": "core-basic-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364738558132:android:e4f837d23033aee4",
+        "android_client_info": {
+          "package_name": "acosta.co.nz.coreapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364738558132-510i2bsbhddf0m0lamebjg901611cvvl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "acosta.co.nz.coreapp",
+            "certificate_hash": "cfa6b3abf29bb3e24110231a8274e5c4fdc1ea3e"
+          }
+        },
+        {
+          "client_id": "364738558132-roblk45rt7jv9isiijcsr2re0m8no99o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBfM9miSQBlZgV1KCrI3MyJm3RUxvRDHY"
+        },
+        {
+          "current_key": "AIzaSyBZXT3fumRx_vVVdV6kVlN1uULSbD3ah-8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364738558132-roblk45rt7jv9isiijcsr2re0m8no99o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

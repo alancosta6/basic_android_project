@@ -1,4 +1,4 @@
-package CoreBase;
+package corebase;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -14,7 +14,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
@@ -22,13 +21,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import Util.StringUtil;
+import Util.TrackerUtil;
 import Util.ViewUtil;
 import acosta.co.nz.coreapp.R;
 
 /**
  * Created by alancosta on 5/19/16.
  */
-public abstract class BaseNavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public abstract class BaseNavigationDrawerActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     private static final String TAG = BaseNavigationDrawerActivity.class.getSimpleName();
@@ -58,11 +58,15 @@ public abstract class BaseNavigationDrawerActivity extends AppCompatActivity imp
 
     protected abstract void superOnRefreshCalled();
 
+    protected abstract String superScreenName();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        TrackerUtil.getInstance().trackScreen(this, superScreenName());
+
         setContentView(R.layout.core_base_activity);
         setUpViewElements();
 
@@ -225,7 +229,7 @@ public abstract class BaseNavigationDrawerActivity extends AppCompatActivity imp
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Log.d(TAG,"onRefresh called");
+                Log.d(TAG, "onRefresh called");
                 superOnRefreshCalled();
                 showLoadingIndicator();
             }

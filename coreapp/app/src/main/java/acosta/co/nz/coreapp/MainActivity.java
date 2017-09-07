@@ -7,10 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import AppReview.AppReviewManager;
-import CoreBase.BaseNavigationDrawerActivity;
+import appreview.AppReviewManager;
+import corebase.BaseNavigationDrawerActivity;
 
 public class MainActivity extends BaseNavigationDrawerActivity {
+
+
+
 
     @Override
     protected Fragment superMainFragment() {
@@ -48,6 +51,11 @@ public class MainActivity extends BaseNavigationDrawerActivity {
         }, 5000);
 
 
+    }
+
+    @Override
+    protected String superScreenName() {
+        return "MAIN";
     }
 
     @Override

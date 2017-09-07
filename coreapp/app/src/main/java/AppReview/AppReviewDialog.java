@@ -1,4 +1,4 @@
-package AppReview;
+package appreview;
 
 import android.app.Dialog;
 import android.content.Context;

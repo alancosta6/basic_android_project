@@ -1,4 +1,4 @@
-package AppReview;
+package appreview;
 
 
 import android.content.ActivityNotFoundException;

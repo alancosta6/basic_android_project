@@ -2,12 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="acosta.co.nz.coreapp">
 
+
+    <!--PERMISSIONS-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--PERMISSIONS-->
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name="corebase.BaseApplication"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="${crashlytics_api_key}" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -21,6 +34,7 @@
 
 
     </application>
+
 
 
 
