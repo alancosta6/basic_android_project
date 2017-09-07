@@ -1,6 +1,8 @@
 package acosta.co.nz.coreapp;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,32 +13,49 @@ import CoreBase.BaseNavigationDrawerActivity;
 public class MainActivity extends BaseNavigationDrawerActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+    protected Fragment superMainFragment() {
+        return new mainFragment();
+    }
+
+    @Override
+    protected boolean superHideToolbar() {
+        return false;
+    }
+
+    @Override
+    protected boolean superLockDrawer() {
+        return false;
+    }
+
+    @Override
+    protected void superFabControl(FloatingActionButton mFab) {
+
+    }
+
+    @Override
+    protected boolean superEnableSwipeRefresh() {
+        return true;
+    }
+
+    @Override
+    protected void superOnRefreshCalled() {
 
 
-        getToolbar().setTitle("OI MUNDO");
-
-
-        AppReviewManager.getInstance(this).start(getSupportFragmentManager());
+        new Handler().postDelayed(new Runnable() {
+            @Override public void run() {
+                dismissLoadingIndicator();
+            }
+        }, 5000);
 
 
     }
 
     @Override
-    protected Fragment createMainFragment() {
-        return new mainFragment() ;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        AppReviewManager.getInstance(this).start(getSupportFragmentManager());
+
     }
 
     @Override
