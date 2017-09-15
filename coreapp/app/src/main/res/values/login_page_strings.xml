@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="or_sigin_using">or sign in using :</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="create_one">Create one</string>
+
+
+
+
+
+    <string name="google_login_failure">Ops! We had a problem login you with google.\n Please try again later.</string>
+    <string name="facebook_login_failure">Ops! We had a problem login you with facebook.\n Please try again later.</string>
+
+
+</resources>

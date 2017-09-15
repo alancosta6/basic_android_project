@@ -26,7 +26,7 @@ android {
 
     defaultConfig {
         applicationId "acosta.co.nz.coreapp"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -48,6 +48,10 @@ android {
         }
     }
 
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
 
     sourceSets {
         main {
@@ -57,7 +61,8 @@ android {
                             'src/main/res',
                             'src/main/res/layout',
                             'src/main/res/layout/CoreBase',
-                            'src/main/res/layout/AppReview']
+                            'src/main/res/layout/AppReview',
+                            'src/main/res/layout/LoginPage']
 
 
         }
@@ -92,18 +97,23 @@ dependencies {
     //compile 'com.google.android.gms:play-services-wearable:11.2.2'
     //GOOGLE PLAY SERVICES
 
-
+    compile 'com.facebook.android:facebook-android-sdk:4.26.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
-    compile 'com.squareup.retrofit2:retrofit:2.0.2'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.google.firebase:firebase-core:10.0.1'
-    compile 'com.google.firebase:firebase-ads:10.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+    compile 'com.google.firebase:firebase-core:11.0.4'
+    compile 'com.google.firebase:firebase-ads:11.0.4'
+    compile 'com.google.android.gms:play-services-auth:11.0.4'
     testCompile 'junit:junit:4.12'
 
     compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
         transitive = true;
     }
+
+    compile 'com.fasterxml.jackson.core:jackson-core:2.9.0'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

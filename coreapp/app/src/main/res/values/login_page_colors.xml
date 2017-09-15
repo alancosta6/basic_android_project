@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="login_page_social_divider">#BDBDBD</color>
+    <color name="login_page_body_color">#FFFFFF</color>
+    <color name="login_page_google_red">#ee3e34</color>
+    <color name="login_page_facebook_blue">#3B5998</color>
+
+
+
+    <color name="login_page_email_text">#ECEFF1</color>
+    <color name="login_page_password_text">#ECEFF1</color>
+
+    <color name="login_page_sigin_bg">#3F51B5</color>
+
+
+    <color name="login_page_forgot_password">#FF4081</color>
+    <color name="login_page_create_account">#FF4081</color>
+    <color name="login_page_links">#BDBDBD</color>
+
+
+</resources>

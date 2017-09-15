@@ -1,5 +1,6 @@
 package corebase;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -19,11 +20,13 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import Util.StringUtil;
 import Util.TrackerUtil;
 import Util.ViewUtil;
 import acosta.co.nz.coreapp.R;
+import login.LoginActivity;
 
 /**
  * Created by alancosta on 5/19/16.
@@ -74,6 +77,7 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
         setUpNavigationDrawer();
         superFabControl(mFab);
         buildSwipeRefreshLayout();
+        handleNavigationDrawerHeader();
 
         // update the main content by replacing fragments
         if (superMainFragment() != null) {
@@ -157,6 +161,29 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
         //TODO: HANDLE MENU ITEM CLICKS
 
         return true;
+    }
+
+
+    private void handleNavigationDrawerHeader() {
+
+        int headerCount = mNavigationView.getHeaderCount();
+        if(headerCount > 0) {
+
+            View headerView = mNavigationView.getHeaderView(0);
+            ImageView imageView = (ImageView) headerView.findViewById(R.id.imageView);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Intent intent = new Intent(BaseNavigationDrawerActivity.this, LoginActivity.class);
+                    startActivity(intent);
+
+                }
+            });
+
+        }
+
+
     }
 
 

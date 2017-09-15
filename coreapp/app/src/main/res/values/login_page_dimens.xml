@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="login_header_height">180dp</dimen>
+    <dimen name="login_logo_width_height">60dp</dimen>
+    <dimen name="login_logo_margin_top">140dp</dimen>
+
+    <dimen name="login_social_divider_margin_top">20dp</dimen>
+    <dimen name="login_social_divider_text_padding">5dp</dimen>
+    <dimen name="login_social_divider_text_sp">16sp</dimen>
+    <dimen name="login_social_padding_start_end">20dp</dimen>
+
+
+    <dimen name="login_social_buttons_margin_top">30dp</dimen>
+    <dimen name="login_social_button_padding">10dp</dimen>
+    <dimen name="login_social_button_min_height">48dp</dimen>
+    <dimen name="login_social_button_min_width">140dp</dimen>
+    <dimen name="login_social_button_text_sp">18sp</dimen>
+    <dimen name="login_social_button_icon_margin">5dp</dimen>
+    <dimen name="login_social_button_icon_height">25dp</dimen>
+
+
+    <dimen name="login_social_email_margin_top">0dp</dimen>
+    <dimen name="login_social_password_margin_top">10dp</dimen>
+
+    <dimen name="login_social_email_and_password_text_sp">18sp</dimen>
+
+    <dimen name="login_social_forgot_password_text_sp">12sp</dimen>
+
+    <dimen name="login_social_sigin_text_sp">18sp</dimen>
+    <dimen name="login_social_sigin_padding_top_bot">10dp</dimen>
+    <dimen name="login_social_sigin_padding_left_right">15dp</dimen>
+
+
+    <dimen name="login_social_create_account_text_sp">18sp</dimen>
+    <dimen name="login_social_dont_have_account_text_sp">16sp</dimen>
+
+    <dimen name="login_social_create_account_margin_top">40dp</dimen>
+
+
+</resources>

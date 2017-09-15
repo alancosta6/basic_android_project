@@ -10,4 +10,13 @@
     <color name="gray">#CFCFCF</color>
     <color name="black">#000000</color>
 
+
+
+    <color name="edit_text_underline_color">#3F51B5</color>
+    <color name="edit_text_hint_color">#BDBDBD</color>
+    <color name="edit_text_text_color">#FF4081</color>
+    <color name="edit_text_highlight_color">#3F51B5</color>
+
+
+
 </resources>

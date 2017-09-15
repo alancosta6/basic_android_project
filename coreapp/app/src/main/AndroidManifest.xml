@@ -8,13 +8,12 @@
     <!--PERMISSIONS-->
 
 
-
     <application
+        android:name="corebase.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name="corebase.BaseApplication"
         android:theme="@style/AppTheme">
 
         <meta-data
@@ -33,12 +32,21 @@
         </activity>
 
 
+        <activity
+            android:name="login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!-- Start Facebook login stuff -->
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@style/com_facebook_activity_theme" />
+        <!-- End Facebook login stuff -->
+
+
     </application>
-
-
-
-
-
 
 
 </manifest>
