@@ -37,6 +37,8 @@ import login.LoginActivity;
 public abstract class BaseNavigationDrawerActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    private static final int SNACK_BAR_DURATION_MILLIS = 5000;
+    private static final int FULL_SCREEN_LOADING_INDICATOR_FADE_IN_MILLIS = 1000;
     private static final String TAG = BaseNavigationDrawerActivity.class.getSimpleName();
 
     /**
@@ -277,21 +279,25 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
 
     public void showLoadingFullScreen() {
 
-        if(mProgressBar == null) {
+        if(mFullScreenProgress == null) {
             finish();
             return;
         }
-        mProgressBar.setVisibility(View.VISIBLE);
+
+        mFullScreenProgress.bringToFront();
+        mFullScreenProgress.setVisibility(View.VISIBLE);
+        mFullScreenProgress.setAlpha(0.0f);
+        mFullScreenProgress.animate().alpha(1.0f).setDuration(FULL_SCREEN_LOADING_INDICATOR_FADE_IN_MILLIS);
 
     }
 
     public void hideLoadingFullScreen() {
 
-        if(mProgressBar == null) {
+        if(mFullScreenProgress == null) {
             finish();
             return;
         }
-        mProgressBar.setVisibility(View.GONE);
+        mFullScreenProgress.setVisibility(View.GONE);
     }
 
 
@@ -323,10 +329,10 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
         }
 
         if (!StringUtil.isEmpty(action) && onClickListener != null) {
-            Snackbar snackbar = Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_LONG).setAction(action, onClickListener);
+            Snackbar snackbar = Snackbar.make(coordinatorLayout, message, SNACK_BAR_DURATION_MILLIS).setAction(action, onClickListener);
             snackbar.show();
         } else if (!StringUtil.isEmpty(message)) {
-            Snackbar snackbar = Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_SHORT);
+            Snackbar snackbar = Snackbar.make(coordinatorLayout, message, SNACK_BAR_DURATION_MILLIS);
             snackbar.show();
         }
     }

@@ -233,6 +233,7 @@ public abstract class LoginSocialManagerActivity extends BaseNavigationDrawerAct
 
         mGoogleApiClient.connect();
 
+        showLoadingFullScreen();
         mGoogleApiClient.registerConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
             @Override
             public void onConnected(Bundle bundle) {
@@ -241,12 +242,15 @@ public abstract class LoginSocialManagerActivity extends BaseNavigationDrawerAct
                     Auth.GoogleSignInApi.signOut(mGoogleApiClient);
                     Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
                     startActivityForResult(signInIntent, REQUEST_CODE_PICK_ACCOUNT);
+                    hideLoadingFullScreen();
                 }
             }
 
             @Override
             public void onConnectionSuspended(int i) {
                 Log.d(TAG, "Google API Client Connection Suspended");
+                showSnackBar(getString(R.string.google_login_failure));
+                hideLoadingFullScreen();
             }
 
         });

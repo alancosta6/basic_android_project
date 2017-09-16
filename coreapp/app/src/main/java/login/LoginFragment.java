@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import acosta.co.nz.coreapp.R;
-import corebase.BaseFragment;
+import corebase.BaseNavigationDrawerFragment;
 
 /**
  * Created by alancosta on 9/7/17.
  */
 
 
-public class LoginFragment extends BaseFragment {
+public class LoginFragment extends BaseNavigationDrawerFragment {
 
 
     private LoginSocialManagerActivity socialManagerActivity;
@@ -26,6 +26,7 @@ public class LoginFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
 
         View rootView = inflater.inflate(R.layout.login_page_main, container, false);
         setUpView(rootView);

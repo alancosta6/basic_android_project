@@ -6,12 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import corebase.BaseFragment;
+import corebase.BaseNavigationDrawerFragment;
 
 /**
  * Created by alancosta on 5/21/16.
  */
-public class mainFragment extends BaseFragment {
+public class mainFragment extends BaseNavigationDrawerFragment {
 
 
     @Nullable
