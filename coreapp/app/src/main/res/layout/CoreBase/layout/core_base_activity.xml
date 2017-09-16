@@ -57,6 +57,27 @@
             android:visibility="gone" />
 
 
+        <LinearLayout
+            android:id="@+id/core_base_full_screen_loader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/translucent_white"
+            android:clickable="true"
+            android:visibility="gone"
+            android:gravity="center">
+
+
+            <ProgressBar
+                android:id="@+id/core_base_full_screen_loader_progressbar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+
+
+
+
+        </LinearLayout>
+
+
     </android.support.design.widget.CoordinatorLayout>
 
 
@@ -68,6 +89,8 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
+
+
 
 
 </android.support.v4.widget.DrawerLayout>

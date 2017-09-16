@@ -1,6 +1,7 @@
 package corebase;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -21,6 +22,8 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import Util.StringUtil;
 import Util.TrackerUtil;
@@ -48,6 +51,8 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
     private NavigationView mNavigationView;
     private FloatingActionButton mFab;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private ProgressBar mProgressBar;
+    private LinearLayout mFullScreenProgress;
 
     protected abstract Fragment superMainFragment();
 
@@ -103,6 +108,12 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
         mNavigationView = (NavigationView) findViewById(R.id.core_base_navigation_view);
         mFab = (FloatingActionButton) findViewById(R.id.core_base_fab);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.core_base_swipe_refresh);
+        mFullScreenProgress = (LinearLayout) findViewById(R.id.core_base_full_screen_loader);
+        mProgressBar = (ProgressBar) findViewById(R.id.core_base_full_screen_loader_progressbar);
+
+        int progressBarColor = ContextCompat.getColor(this, R.color.base_nav_drawer_full_screen_progressbar);
+        mProgressBar.getIndeterminateDrawable().setColorFilter(progressBarColor, PorterDuff.Mode.MULTIPLY);
+
     }
 
 
@@ -167,7 +178,7 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
     private void handleNavigationDrawerHeader() {
 
         int headerCount = mNavigationView.getHeaderCount();
-        if(headerCount > 0) {
+        if (headerCount > 0) {
 
             View headerView = mNavigationView.getHeaderView(0);
             ImageView imageView = (ImageView) headerView.findViewById(R.id.imageView);
@@ -264,8 +275,29 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
     }
 
 
+    public void showLoadingFullScreen() {
+
+        if(mProgressBar == null) {
+            finish();
+            return;
+        }
+        mProgressBar.setVisibility(View.VISIBLE);
+
+    }
+
+    public void hideLoadingFullScreen() {
+
+        if(mProgressBar == null) {
+            finish();
+            return;
+        }
+        mProgressBar.setVisibility(View.GONE);
+    }
+
+
     public void showLoadingIndicator() {
         if (mSwipeRefreshLayout == null) {
+            finish();
             return;
         }
         mSwipeRefreshLayout.setRefreshing(true);
@@ -273,6 +305,7 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
 
     public void dismissLoadingIndicator() {
         if (mSwipeRefreshLayout == null) {
+            finish();
             return;
         }
         mSwipeRefreshLayout.setRefreshing(false);
