@@ -32,6 +32,16 @@ android {
         versionName "1.0"
     }
 
+    signingConfigs {
+        debug {
+            storeFile file('../keystores/debug.keystore')
+            keyAlias 'android'
+            keyPassword '******'
+            storePassword '******'
+        }
+    }
+
+
     buildTypes {
 
 
@@ -43,8 +53,10 @@ android {
             manifestPlaceholders = [crashlytics_api_key: "1bea61944e1a9d1513637a5112c1411b3e4863a5"]
         }
         debug {
+            signingConfig signingConfigs.debug
             manifestPlaceholders = [crashlytics_api_key: "1bea61944e1a9d1513637a5112c1411b3e4863a5"]
             it.buildConfigField 'String', 'BUILDTYPE', "\"DEBUG\""
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -100,7 +112,7 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.26.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+
     compile 'com.github.bumptech.glide:glide:4.0.0'
     compile 'com.google.firebase:firebase-core:11.0.4'
     compile 'com.google.firebase:firebase-ads:11.0.4'
@@ -111,9 +123,11 @@ dependencies {
         transitive = true;
     }
 
-    compile 'com.fasterxml.jackson.core:jackson-core:2.9.0'
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.0'
+    // JSON Parsing
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
 
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

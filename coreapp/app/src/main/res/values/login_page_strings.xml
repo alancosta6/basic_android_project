@@ -2,6 +2,7 @@
 <resources>
 
 
+    <string name="login">Login</string>
     <string name="or_sigin_using">or sign in using :</string>
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="sign_in">Sign In</string>

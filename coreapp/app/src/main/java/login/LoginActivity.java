@@ -3,6 +3,7 @@ package login;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 
 import login.LoginDTO.SocialLoginDTO;
 
@@ -14,6 +15,12 @@ public class LoginActivity extends LoginSocialManagerActivity {
 
 
     private static final String TAG = LoginActivity.class.getSimpleName();
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     protected Fragment superMainFragment() {
@@ -53,6 +60,8 @@ public class LoginActivity extends LoginSocialManagerActivity {
 
     @Override
     protected void onSocialLoginSuccess(SocialLoginDTO loginDTO) {
+        Log.d(TAG, loginDTO.toString());
+
 
     }
 

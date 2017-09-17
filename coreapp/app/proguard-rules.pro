@@ -15,3 +15,10 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+
+-dontwarn okio.**
+-dontwarn retrofit2.Platform$Java8
+-dontwarn javax.annotation.**
+-keep class okhttp3.** { *; }
+

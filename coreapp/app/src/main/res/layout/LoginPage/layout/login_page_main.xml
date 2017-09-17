@@ -1,40 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/login_page_body_color"
-    android:scrollbars="none">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/login_page_body_color"
+        android:scrollbars="none">
 
-        <include
-            android:id="@+id/login_page_header"
-            layout="@layout/login_page_bg"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/login_header_height" />
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/login_page_header"
+                layout="@layout/login_page_bg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_header_height" />
 
 
-        <ImageView
-            android:id="@+id/login_page_logo"
-            android:layout_width="@dimen/login_logo_width_height"
-            android:layout_height="@dimen/login_logo_width_height"
-            android:layout_centerHorizontal="true"
-            android:elevation="5dp"
-            android:layout_marginTop="@dimen/login_logo_margin_top"
-            android:src="@drawable/ic_launcher" />
+            <ImageView
+                android:id="@+id/login_page_logo"
+                android:layout_width="@dimen/login_logo_width_height"
+                android:layout_height="@dimen/login_logo_width_height"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/login_logo_margin_top"
+                android:elevation="5dp"
+                android:src="@drawable/ic_launcher" />
 
-        <include
-            android:id="@+id/login_page_body"
-            layout="@layout/login_page_sigin"
-            android:layout_width="match_parent"
+            <include
+                android:id="@+id/login_page_body"
+                layout="@layout/login_page_sigin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/login_page_logo"
+                android:background="@color/login_page_body_color" />
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/translucent_black_50">
+
+            <ImageView
+                android:id="@+id/login_page_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingEnd="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_arrow_back_white_24dp"/>
+
+
+        <Util.CustomTypeFaceTextView
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_below="@+id/login_page_logo"
-            android:background="@color/login_page_body_color" />
+            android:padding="@dimen/login_social_divider_text_padding"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="@dimen/login_social_button_text_sp"
+            app:typeface="fonts/Roboto-Regular.ttf" />
 
 
-    </RelativeLayout>
 
+    </LinearLayout>
 
-</ScrollView>
+</RelativeLayout>

@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import java.util.Arrays;
 
 import Util.StringUtil;
+import acosta.co.nz.coreapp.BuildConfig;
 import acosta.co.nz.coreapp.R;
 import corebase.BaseNavigationDrawerActivity;
 import login.LoginDTO.SocialLoginDTO;
@@ -37,7 +38,7 @@ public abstract class LoginSocialManagerActivity extends BaseNavigationDrawerAct
     private static final String TAG = LoginSocialManagerActivity.class.getSimpleName();
 
 
-    private static final String SERVER_CLIENT_ID = "184282505876.apps.googleusercontent.com";
+    private static final String GOOGLE_SERVER_CLIENT_ID = "154928856216-tvvpc4n1f5vcg1nfp1m08m1bpnfebspr.apps.googleusercontent.com";
     private static final String FACEBOOK_APP_ID = "1518767344839301";
 
 
@@ -68,7 +69,11 @@ public abstract class LoginSocialManagerActivity extends BaseNavigationDrawerAct
             facebookCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
 
-        if (requestCode == REQUEST_CODE_PICK_ACCOUNT && resultCode != Activity.RESULT_CANCELED) {
+        if(resultCode == Activity.RESULT_CANCELED) {
+            return;
+        }
+
+        if (requestCode == REQUEST_CODE_PICK_ACCOUNT) {
 
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()) {
@@ -76,7 +81,9 @@ public abstract class LoginSocialManagerActivity extends BaseNavigationDrawerAct
                 if (acct != null) {
                     String idToken = acct.getIdToken();
                     String email = acct.getEmail();
-                    if (!StringUtil.isEmpty(idToken) && !StringUtil.isEmpty(email)) {
+
+
+                    if ((!StringUtil.isEmpty(idToken) || BuildConfig.DEBUG) && !StringUtil.isEmpty(email)) {
 
                         Uri picUri = acct.getPhotoUrl();
                         String googlePictureURL = picUri != null ? picUri.toString() : StringUtil.EMPTY_STRING;
@@ -89,18 +96,22 @@ public abstract class LoginSocialManagerActivity extends BaseNavigationDrawerAct
                         socialLoginDTO.setSocialNetworkLoginToken(idToken);
                         socialLoginDTO.setSocialLoginSource(SocialLoginDTO.Source.GOOGLE);
                         onSocialLoginSuccess(socialLoginDTO);
+                        finish();
 
                     } else {
-                        showSnackBar(getString(R.string.google_login_failure));
+                        showSnackBar(getString(R.string.google_login_failure) + " - Code 0");
                     }
 
                 } else {
-                    showSnackBar(getString(R.string.google_login_failure));
+                    showSnackBar(getString(R.string.google_login_failure) + " - Code 1");
                 }
 
             } else {
-                showSnackBar(getString(R.string.google_login_failure));
+                Log.e(TAG, result.getStatus().toString());
+                showSnackBar(getString(R.string.google_login_failure) + " - Code 2");
             }
+        } else {
+            showSnackBar(getString(R.string.google_login_failure) + " - Code 3");
         }
 
     }
@@ -161,6 +172,7 @@ public abstract class LoginSocialManagerActivity extends BaseNavigationDrawerAct
                                         socialLoginDTO.setSocialLoginSource(SocialLoginDTO.Source.FACEBOOK);
 
                                         onSocialLoginSuccess(socialLoginDTO);
+                                        finish();
 
                                     } else {
                                         Log.e(TAG, "USER HAS NO EMAIL");
@@ -206,17 +218,29 @@ public abstract class LoginSocialManagerActivity extends BaseNavigationDrawerAct
     private void googleInitialize() {
 
 
-        if (StringUtil.isEmpty(SERVER_CLIENT_ID)) {
+        if (StringUtil.isEmpty(GOOGLE_SERVER_CLIENT_ID)) {
             Log.e(TAG, "You must add a Google server client ID like: 18428231205876.apps.googleusercontent.com");
             return;
         }
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestScopes(new Scope(Scopes.EMAIL))
-                .requestScopes(new Scope(Scopes.PROFILE))
-                .requestIdToken(SERVER_CLIENT_ID)
-                .requestServerAuthCode(SERVER_CLIENT_ID)
-                .build();
+        GoogleSignInOptions gso;
+        if(BuildConfig.DEBUG) {
+
+            gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestScopes(new Scope(Scopes.EMAIL))
+                    .requestScopes(new Scope(Scopes.PROFILE))
+                    .build();
+
+        } else {
+
+             gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestScopes(new Scope(Scopes.EMAIL))
+                    .requestScopes(new Scope(Scopes.PROFILE))
+                    .requestIdToken(GOOGLE_SERVER_CLIENT_ID)
+                    .requestServerAuthCode(GOOGLE_SERVER_CLIENT_ID)
+                    .build();
+        }
+
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
@@ -226,7 +250,7 @@ public abstract class LoginSocialManagerActivity extends BaseNavigationDrawerAct
 
     public void doGoogleAccountLogin() {
 
-        if (StringUtil.isEmpty(SERVER_CLIENT_ID)) {
+        if (StringUtil.isEmpty(GOOGLE_SERVER_CLIENT_ID)) {
             Log.e(TAG, "You must add a Google server client ID like: 18428231205876.apps.googleusercontent.com");
             return;
         }
@@ -252,7 +276,6 @@ public abstract class LoginSocialManagerActivity extends BaseNavigationDrawerAct
                 showSnackBar(getString(R.string.google_login_failure));
                 hideLoadingFullScreen();
             }
-
         });
 
     }

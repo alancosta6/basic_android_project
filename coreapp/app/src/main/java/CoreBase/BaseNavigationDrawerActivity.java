@@ -77,6 +77,7 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
         super.onCreate(savedInstanceState);
         TrackerUtil.getInstance().trackScreen(this, superScreenName());
 
+        ViewUtil.enableTranslucentStatusBar(this);
         setContentView(R.layout.core_base_activity);
         setUpViewElements();
 
@@ -128,7 +129,7 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity implemen
 
         hideOrShowToolbar(superHideToolbar());
 
-        int toolbarColor = ContextCompat.getColor(this, R.color.colorPrimary);
+        int toolbarColor = ContextCompat.getColor(this, R.color.color_primary);
         mToolbar.setBackgroundColor(toolbarColor);
         ViewUtil.setStatusBarColor(this, toolbarColor);
         setSupportActionBar(mToolbar);
